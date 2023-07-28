@@ -1,3 +1,5 @@
-Flask
+Flask[async]
+asyncio
 openai
 gunicorn
+python-dotenv

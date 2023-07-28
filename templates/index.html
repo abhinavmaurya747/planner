@@ -19,34 +19,188 @@
 
       <section class="container">
         <div class="row">
-          <form method="POST" action="/">
+          <form
+            method="POST"
+            action="/"
+            class="g-3 needs-validation"
+            novalidate
+          >
             <div class="mb-3">
-              <label for="user_meals" class="form-label"
-                >Enter your preffered meals:</label
+              <label for="to_include_foods" class="form-label"
+                >Which meals do you want to include in your 1 week meal plan?
+                breakfast/lunch/dinner/morning snack/afternoon snack
+              </label>
+              <textarea
+                id="to_include_foods"
+                name="to_include_foods"
+                class="form-control"
+                rows="2"
+                required
+              ></textarea>
+              <div id="invalid_to_include_foods" style="color: red">
+                <!-- Please provide a valid input. For example: breakfast, lunch and
+                dinnner for all days. -->
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="food_categories" class="form-label"
+                >Are you vegan :</label
+              >
+              <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-light">
+                  <input
+                    type="radio"
+                    name="veganCheck"
+                    id="veganRadio"
+                    value="vegetarian"
+                  />
+                  Yes
+                </label>
+                <label class="btn btn-light">
+                  <input
+                    type="radio"
+                    name="veganCheck"
+                    id="nonVeganRadio"
+                    value="non-vegetarian"
+                    checked
+                  />
+                  No
+                </label>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="food_genre" class="form-label"
+                >Your food genre preferences: (Mexican, Italian, Chinese, etc.)
+                :</label
               >
               <textarea
-                id="user_meals"
-                name="user_meals"
+                id="food_genre"
+                name="food_genre"
                 class="form-control"
-                rows="5"
+                rows="2"
+                required
+              ></textarea>
+              <div id="invalid_food_genre" style="color: red"></div>
+            </div>
+            <div class="mb-3">
+              <label for="preffered_foods" class="form-label"
+                >Preferred foods (Add atleast 5-10 foods) :</label
+              >
+              <textarea
+                id="preffered_foods"
+                name="preffered_foods"
+                class="form-control"
+                rows="2"
+                required
+              ></textarea>
+              <div id="invalid_preffered_foods" style="color: red"></div>
+            </div>
+            <div class="mb-3">
+              <label for="avoid_foods" class="form-label"
+                >Foods to avoid:</label
+              >
+              <textarea
+                id="avoid_foods"
+                name="avoid_foods"
+                class="form-control"
+                rows="2"
+                required
               ></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="mb-3">
+              <label for="allergic_foods" class="form-label"
+                >Allergic foods:</label
+              >
+              <textarea
+                id="allergic_foods"
+                name="allergic_foods"
+                class="form-control"
+                rows="2"
+                required
+              ></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="leftover_days" class="form-label"
+                >When do you want to plan leftovers? (Ex. Thursdays for
+                dinner)</label
+              >
+              <textarea
+                id="leftover_days"
+                name="leftover_days"
+                class="form-control"
+                rows="2"
+                required
+              ></textarea>
+            </div>
+
+            <div class="mb-3">
+              <label for="takeout_days" class="form-label"
+                >When do you want to plan takeout food? (Ex. All day Saturday,
+                and Wednesday dinner)</label
+              >
+              <textarea
+                id="takeout_days"
+                name="takeout_days"
+                class="form-control"
+                rows="2"
+                required
+              ></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="treats" class="form-label"
+                >If you'd like to plan treats in your plan, what are fun foods
+                you enjoy?</label
+              >
+              <textarea
+                id="treats"
+                name="treats"
+                class="form-control"
+                rows="2"
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="submit">
+              Submit
+            </button>
           </form>
         </div>
         <br />
-        <div class="row">
-          <div class="col">
-            <textarea
-              id="meal_plan"
-              name="meal_plan"
-              class="form-control"
-              rows="5"
-              readonly
-              style="display: none"
-            ></textarea>
+        <div
+          class="alert alert-danger"
+          role="alert"
+          style="display: none"
+          id="errorOccured"
+        >
+          Something wrong happened. Could you please try again?
+          <!-- Error in fetching response from server. -->
+        </div>
+        <div class="loading-spinner" id="loading" style="display: none">
+          <div
+            class="d-flex justify-content-center align-items-center"
+            style="height: 10vh"
+          >
+            <div
+              class="spinner-border text-primary"
+              style="width: 5rem; height: 5rem"
+              role="status"
+            >
+              <span class="sr-only"></span>
+            </div>
           </div>
         </div>
+        <div class="row" id="scheduleContainer" style="display: none">
+          <div class="col">
+            <div class="card">
+              <h5 class="card-title">Prepared meal schedule :</h5>
+              <div class="card-body">
+                <div id="schedule-table" class="table-responsive"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div id="ingredientContainer"></div>
       </section>
       <br />
       <br />
@@ -56,6 +210,7 @@
       integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
       crossorigin="anonymous"
     ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="{{url_for('static', filename='handleResponse.js')}}"></script>
   </body>
 </html>

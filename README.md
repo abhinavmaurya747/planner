@@ -6,6 +6,13 @@ Welcome to the Meal Planner project! This application is designed to help you cr
 
 You can access the live version of the Meal Planner application at [https://test-djo2.onrender.com](https://test-djo2.onrender.com). Please note that the application may take some time to load, as it is hosted on a free tier and may be removed after periods of inactivity.
 
+## Screenshots
+![image](https://github.com/abhinavmaurya747/planner/assets/27424280/879a549b-51fe-455f-b931-c9138dc37866)
+![image](https://github.com/abhinavmaurya747/planner/assets/27424280/2da5a676-4bd2-4137-8041-b6e642c0900c)
+![image](https://github.com/abhinavmaurya747/planner/assets/27424280/1dae6af7-5ed3-435f-bbb6-6333f81577cd)
+![image](https://github.com/abhinavmaurya747/planner/assets/27424280/de0cd109-83ee-4b11-93da-324096b1bb2c)
+![image](https://github.com/abhinavmaurya747/planner/assets/27424280/baf85ca1-5def-49bf-8e82-c888a2c16423)
+
 ## How the Meal Planner Works
 
 The Meal Planner will guide you through a series of questions to understand your meal preferences and dietary restrictions. Based on your answers, it will create a customized one-week meal plan for you. Here are the questions it will ask:

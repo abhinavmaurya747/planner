@@ -41,7 +41,7 @@ The Meal Planner will guide you through a series of questions to understand your
 
 If you prefer to run the Meal Planner application locally on your machine, follow these steps:
 
-1. Clone the repository from GitHub: [https://github.com/your-username/meal-planner](https://github.com/your-username/meal-planner)
+1. Clone the repository from GitHub: [https://github.com/abhinavmaurya747/planner](https://github.com/abhinavmaurya747/planner)
 
 2. Set up a virtual environment and install the required dependencies by running:
     pip install -r requirements.txt
